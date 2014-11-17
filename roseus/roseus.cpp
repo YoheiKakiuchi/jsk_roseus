@@ -1164,6 +1164,63 @@ pointer ROSEUS_SET_PARAM(register context *ctx,int n,pointer *argv)
   return (T);
 }
 
+pointer XmlRpcToEusValue(register context *ctx, XmlRpc::XmlRpcValue rpc_value)
+{
+  numunion nu;
+  pointer ret, first;
+
+  if ( rpc_value.getType() == XmlRpc::XmlRpcValue::TypeBoolean ){
+    if ( rpc_value ){
+      return T;
+    } else {
+      return NIL;
+    }
+  }
+  else if ( rpc_value.getType() == XmlRpc::XmlRpcValue::TypeDouble ){
+    return makeflt((double)rpc_value);
+  }
+  else if ( rpc_value.getType() == XmlRpc::XmlRpcValue::TypeInt ){
+    return makeint((int)rpc_value);
+  }
+  else if ( rpc_value.getType() == XmlRpc::XmlRpcValue::TypeString ){
+    std::string str = rpc_value;
+    return makestring((char*)str.c_str(), ((std::string)rpc_value).length());
+  }
+  else if ( rpc_value.getType() == XmlRpc::XmlRpcValue::TypeArray ){
+    ret = cons(ctx, NIL, NIL);
+    first = ret;
+    vpush(ret);
+    for ( int i = 0; i < rpc_value.size(); i++){
+      ccdr(ret) = cons(ctx, XmlRpcToEusValue(ctx, rpc_value[i]), NIL);
+      ret = ccdr(ret);
+    }
+    vpop();
+    return ccdr(first);
+  }
+  else if ( rpc_value.getType() == XmlRpc::XmlRpcValue::TypeStruct ){
+    ret = cons(ctx, NIL, NIL);
+    first = ret;
+    vpush(ret);
+    XmlRpc::XmlRpcValue::iterator it = rpc_value.begin();
+    while(it !=rpc_value.end()) {
+      std::string key = it->first;
+      pointer tmp = cons(ctx, makestring((char*)key.c_str(), key.length()), NIL);
+      vpush(tmp);
+      ccdr(tmp) = XmlRpcToEusValue(ctx, it->second);
+      ccdr(ret) = cons(ctx, tmp, NIL);
+      ret = ccdr(ret);
+      vpop(); // vpush(tmp);
+      it++;
+    }
+    vpop();
+    return ccdr(first);
+  } else {
+    ROS_FATAL("unkown rosparam type!");
+    return NIL;
+  }
+  return NIL;
+}
+
 pointer XmlRpcToEusList(register context *ctx, XmlRpc::XmlRpcValue param_list)
 {
     numunion nu;
@@ -1193,6 +1250,10 @@ pointer XmlRpcToEusList(register context *ctx, XmlRpc::XmlRpcValue param_list)
             else if ( param_list[i].getType() == XmlRpc::XmlRpcValue::TypeString ){
                 std::string str = param_list[i];
                 ccdr(ret) = cons(ctx, makestring((char*)str.c_str(), ((std::string)param_list[i]).length()), NIL);
+                ret = ccdr(ret);
+            }
+            else if ( param_list[i].getType() == XmlRpc::XmlRpcValue::TypeStruct ){
+                ccdr(ret) = cons(ctx, XmlRpcToEusValue(ctx, param_list[i]), NIL);
                 ret = ccdr(ret);
             }
             else {
