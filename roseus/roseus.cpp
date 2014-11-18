@@ -1170,11 +1170,7 @@ pointer XmlRpcToEusValue(register context *ctx, XmlRpc::XmlRpcValue rpc_value)
   pointer ret, first;
 
   if ( rpc_value.getType() == XmlRpc::XmlRpcValue::TypeBoolean ){
-    if ( rpc_value ){
-      return T;
-    } else {
-      return NIL;
-    }
+    if ( rpc_value ) return T; else return NIL;
   }
   else if ( rpc_value.getType() == XmlRpc::XmlRpcValue::TypeDouble ){
     return makeflt((double)rpc_value);
@@ -1194,7 +1190,7 @@ pointer XmlRpcToEusValue(register context *ctx, XmlRpc::XmlRpcValue rpc_value)
       ccdr(ret) = cons(ctx, XmlRpcToEusValue(ctx, rpc_value[i]), NIL);
       ret = ccdr(ret);
     }
-    vpop();
+    vpop(); // vpush(ret);
     return ccdr(first);
   }
   else if ( rpc_value.getType() == XmlRpc::XmlRpcValue::TypeStruct ){
@@ -1212,7 +1208,7 @@ pointer XmlRpcToEusValue(register context *ctx, XmlRpc::XmlRpcValue rpc_value)
       vpop(); // vpush(tmp);
       it++;
     }
-    vpop();
+    vpop(); // vpush(ret);
     return ccdr(first);
   } else {
     ROS_FATAL("unkown rosparam type!");
@@ -1264,6 +1260,8 @@ pointer XmlRpcToEusList(register context *ctx, XmlRpc::XmlRpcValue param_list)
         }
         vpop();                 // remove vpush(ret)
         return ccdr(first);
+    } else if ( param_list.getType() == XmlRpc::XmlRpcValue::TypeStruct ) {
+        return XmlRpcToEusValue(ctx, param_list);
     } else
         return (NIL);
 }
