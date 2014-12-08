@@ -827,39 +827,39 @@ pointer ___eustf(register context *ctx, int n, pointer *argv, pointer env)
     exit(2);
   }
   Spevalof(PACKAGE)=rospkg;
-  defun(ctx,"EUSTF-TRANSFORMER",argv[0],(pointer (*)())EUSTF_TRANSFORMER);
-  defun(ctx,"EUSTF-ALL-FRAMES-AS-STRING",argv[0],(pointer (*)())EUSTF_ALLFRAMESASSTRING);
-  defun(ctx,"EUSTF-SET-TRANSFORM",argv[0],(pointer (*)())EUSTF_SETTRANSFORM);
-  defun(ctx,"EUSTF-WAIT-FOR-TRANSFORM",argv[0],(pointer (*)())EUSTF_WAITFORTRANSFORM);
-  defun(ctx,"EUSTF-WAIT-FOR-TRANSFORM-FULL",argv[0],(pointer (*)())EUSTF_WAITFORTRANSFORMFULL);
-  defun(ctx,"EUSTF-CAN-TRANSFORM",argv[0],(pointer (*)())EUSTF_CANTRANSFORM);
-  defun(ctx,"EUSTF-CAN-TRANSFORM-FULL",argv[0],(pointer (*)())EUSTF_CANTRANSFORMFULL);
-  defun(ctx,"EUSTF-CHAIN",argv[0],(pointer (*)())EUSTF_CHAIN);
-  defun(ctx,"EUSTF-CLEAR",argv[0],(pointer (*)())EUSTF_CLEAR);
-  defun(ctx,"EUSTF-FRAME-EXISTS",argv[0],(pointer (*)())EUSTF_FRAMEEXISTS);
-  defun(ctx,"EUSTF-GET-FRAME-STRINGS",argv[0],(pointer (*)())EUSTF_GETFRAMESTRINGS);
-  defun(ctx,"EUSTF-GET-LATEST-COMMON-TIME",argv[0],(pointer (*)())EUSTF_GETLATERSTCOMMONTIME);
-  defun(ctx,"EUSTF-LOOKUP-TRANSFORM",argv[0],(pointer (*)())EUSTF_LOOKUPTRANSFORM);
-  defun(ctx,"EUSTF-LOOKUP-TRANSFORM-FULL",argv[0],(pointer (*)())EUSTF_LOOKUPTRANSFORMFULL);
-  defun(ctx,"EUSTF-TRANSFORM-POSE",argv[0],(pointer (*)())EUSTF_TRANSFORMPOSE);
-  defun(ctx,"EUSTF-LOOKUP-VELOCITY",argv[0],(pointer (*)())EUSTF_LOOKUPVELOCITY);
+  defun(ctx,"EUSTF-TRANSFORMER",argv[0],(pointer (*)())EUSTF_TRANSFORMER,NULL);
+  defun(ctx,"EUSTF-ALL-FRAMES-AS-STRING",argv[0],(pointer (*)())EUSTF_ALLFRAMESASSTRING,NULL);
+  defun(ctx,"EUSTF-SET-TRANSFORM",argv[0],(pointer (*)())EUSTF_SETTRANSFORM,NULL);
+  defun(ctx,"EUSTF-WAIT-FOR-TRANSFORM",argv[0],(pointer (*)())EUSTF_WAITFORTRANSFORM,NULL);
+  defun(ctx,"EUSTF-WAIT-FOR-TRANSFORM-FULL",argv[0],(pointer (*)())EUSTF_WAITFORTRANSFORMFULL,NULL);
+  defun(ctx,"EUSTF-CAN-TRANSFORM",argv[0],(pointer (*)())EUSTF_CANTRANSFORM,NULL);
+  defun(ctx,"EUSTF-CAN-TRANSFORM-FULL",argv[0],(pointer (*)())EUSTF_CANTRANSFORMFULL,NULL);
+  defun(ctx,"EUSTF-CHAIN",argv[0],(pointer (*)())EUSTF_CHAIN,NULL);
+  defun(ctx,"EUSTF-CLEAR",argv[0],(pointer (*)())EUSTF_CLEAR,NULL);
+  defun(ctx,"EUSTF-FRAME-EXISTS",argv[0],(pointer (*)())EUSTF_FRAMEEXISTS,NULL);
+  defun(ctx,"EUSTF-GET-FRAME-STRINGS",argv[0],(pointer (*)())EUSTF_GETFRAMESTRINGS,NULL);
+  defun(ctx,"EUSTF-GET-LATEST-COMMON-TIME",argv[0],(pointer (*)())EUSTF_GETLATERSTCOMMONTIME,NULL);
+  defun(ctx,"EUSTF-LOOKUP-TRANSFORM",argv[0],(pointer (*)())EUSTF_LOOKUPTRANSFORM,NULL);
+  defun(ctx,"EUSTF-LOOKUP-TRANSFORM-FULL",argv[0],(pointer (*)())EUSTF_LOOKUPTRANSFORMFULL,NULL);
+  defun(ctx,"EUSTF-TRANSFORM-POSE",argv[0],(pointer (*)())EUSTF_TRANSFORMPOSE,NULL);
+  defun(ctx,"EUSTF-LOOKUP-VELOCITY",argv[0],(pointer (*)())EUSTF_LOOKUPVELOCITY,NULL);
   /* */
-  defun(ctx,"EUSTF-TRANSFORM-LISTENER",argv[0],(pointer (*)())EUSTF_TRANSFORM_LISTENER);
-  defun(ctx,"EUSTF-TRANSFORM-LISTENER-DISPOSE",argv[0],(pointer (*)())EUSTF_TRANSFORM_LISTENER_DISPOSE);
+  defun(ctx,"EUSTF-TRANSFORM-LISTENER",argv[0],(pointer (*)())EUSTF_TRANSFORM_LISTENER,NULL);
+  defun(ctx,"EUSTF-TRANSFORM-LISTENER-DISPOSE",argv[0],(pointer (*)())EUSTF_TRANSFORM_LISTENER_DISPOSE,NULL);
 
   /* */
-  defun(ctx,"EUSTF-SET-EXTRAPOLATION-LIMIT",argv[0],(pointer (*)())EUSTF_SETEXTRAPOLATIONLIMIT);
-  defun(ctx,"EUSTF-GET-PARENT",argv[0],(pointer (*)())EUSTF_GETPARENT);
+  defun(ctx,"EUSTF-SET-EXTRAPOLATION-LIMIT",argv[0],(pointer (*)())EUSTF_SETEXTRAPOLATIONLIMIT,NULL);
+  defun(ctx,"EUSTF-GET-PARENT",argv[0],(pointer (*)())EUSTF_GETPARENT,NULL);
   /* */
-  defun(ctx,"EUSTF-TRANSFORM-BROADCASTER",argv[0],(pointer (*)())EUSTF_TRANSFORM_BROADCASTER);
-  defun(ctx,"EUSTF-SEND-TRANSFORM",argv[0],(pointer (*)())EUSTF_SEND_TRANSFORM);
+  defun(ctx,"EUSTF-TRANSFORM-BROADCASTER",argv[0],(pointer (*)())EUSTF_TRANSFORM_BROADCASTER,NULL);
+  defun(ctx,"EUSTF-SEND-TRANSFORM",argv[0],(pointer (*)())EUSTF_SEND_TRANSFORM,NULL);
 
   /* tf2 */
-  defun(ctx,"EUSTF-BUFFER-CLIENT",argv[0],(pointer (*)())EUSTF_BUFFER_CLIENT);
-  defun(ctx,"EUSTF-BUFFER-CLIENT-DISPOSE",argv[0],(pointer (*)())EUSTF_BUFFER_CLIENT_DISPOSE);
-  defun(ctx,"EUSTF-TF2-WAIT-FOR-SERVER",argv[0],(pointer (*)())EUSTF_TFBC_WAITFORSERVER);
-  defun(ctx,"EUSTF-TF2-CAN-TRANSFORM",argv[0],(pointer (*)())EUSTF_TFBC_CANTRANSFORM);
-  defun(ctx,"EUSTF-TF2-LOOKUP-TRANSFORM",argv[0],(pointer (*)())EUSTF_TFBC_LOOKUPTRANSFORM);
+  defun(ctx,"EUSTF-BUFFER-CLIENT",argv[0],(pointer (*)())EUSTF_BUFFER_CLIENT,NULL);
+  defun(ctx,"EUSTF-BUFFER-CLIENT-DISPOSE",argv[0],(pointer (*)())EUSTF_BUFFER_CLIENT_DISPOSE,NULL);
+  defun(ctx,"EUSTF-TF2-WAIT-FOR-SERVER",argv[0],(pointer (*)())EUSTF_TFBC_WAITFORSERVER,NULL);
+  defun(ctx,"EUSTF-TF2-CAN-TRANSFORM",argv[0],(pointer (*)())EUSTF_TFBC_CANTRANSFORM,NULL);
+  defun(ctx,"EUSTF-TF2-LOOKUP-TRANSFORM",argv[0],(pointer (*)())EUSTF_TFBC_LOOKUPTRANSFORM,NULL);
 
   pointer_update(Spevalof(PACKAGE),p);
   return 0;

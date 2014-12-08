@@ -1456,50 +1456,50 @@ pointer ___roseus(register context *ctx, int n, pointer *argv, pointer env)
 
   QANON=defvar(ctx,"*ANONYMOUS-NAME*",makeint(ros::init_options::AnonymousName),rospkg);
   QNOOUT=defvar(ctx,"*NO-ROSOUT*",makeint(ros::init_options::NoRosout),rospkg);
-  defun(ctx,"SPIN",argv[0],(pointer (*)())ROSEUS_SPIN);
-  defun(ctx,"SPIN-ONCE",argv[0],(pointer (*)())ROSEUS_SPINONCE);
-  defun(ctx,"TIME-NOW-RAW",argv[0],(pointer (*)())ROSEUS_TIME_NOW);
-  defun(ctx,"RATE",argv[0],(pointer (*)())ROSEUS_RATE);
-  defun(ctx,"SLEEP",argv[0],(pointer (*)())ROSEUS_SLEEP);
-  defun(ctx,"OK",argv[0],(pointer (*)())ROSEUS_OK);
+  defun(ctx,"SPIN",argv[0],(pointer (*)())ROSEUS_SPIN,NULL);
+  defun(ctx,"SPIN-ONCE",argv[0],(pointer (*)())ROSEUS_SPINONCE,NULL);
+  defun(ctx,"TIME-NOW-RAW",argv[0],(pointer (*)())ROSEUS_TIME_NOW,NULL);
+  defun(ctx,"RATE",argv[0],(pointer (*)())ROSEUS_RATE,NULL);
+  defun(ctx,"SLEEP",argv[0],(pointer (*)())ROSEUS_SLEEP,NULL);
+  defun(ctx,"OK",argv[0],(pointer (*)())ROSEUS_OK,NULL);
 
-  defun(ctx,"ROS-DEBUG",argv[0],(pointer (*)())ROSEUS_ROSDEBUG);
-  defun(ctx,"ROS-INFO",argv[0],(pointer (*)())ROSEUS_ROSINFO);
-  defun(ctx,"ROS-WARN",argv[0],(pointer (*)())ROSEUS_ROSWARN);
-  defun(ctx,"ROS-ERROR",argv[0],(pointer (*)())ROSEUS_ROSERROR);
-  defun(ctx,"ROS-FATAL",argv[0],(pointer (*)())ROSEUS_ROSFATAL);
-  defun(ctx,"EXIT",argv[0],(pointer (*)())ROSEUS_EXIT);
+  defun(ctx,"ROS-DEBUG",argv[0],(pointer (*)())ROSEUS_ROSDEBUG,NULL);
+  defun(ctx,"ROS-INFO",argv[0],(pointer (*)())ROSEUS_ROSINFO,NULL);
+  defun(ctx,"ROS-WARN",argv[0],(pointer (*)())ROSEUS_ROSWARN,NULL);
+  defun(ctx,"ROS-ERROR",argv[0],(pointer (*)())ROSEUS_ROSERROR,NULL);
+  defun(ctx,"ROS-FATAL",argv[0],(pointer (*)())ROSEUS_ROSFATAL,NULL);
+  defun(ctx,"EXIT",argv[0],(pointer (*)())ROSEUS_EXIT,NULL);
 
-  defun(ctx,"SUBSCRIBE",argv[0],(pointer (*)())ROSEUS_SUBSCRIBE);
-  defun(ctx,"UNSUBSCRIBE",argv[0],(pointer (*)())ROSEUS_UNSUBSCRIBE);
-  defun(ctx,"GET-NUM-PUBLISHERS",argv[0],(pointer (*)())ROSEUS_GETNUMPUBLISHERS);
-  defun(ctx,"GET-TOPIC-SUBSCRIBER",argv[0],(pointer (*)())ROSEUS_GETTOPICSUBSCRIBER);
+  defun(ctx,"SUBSCRIBE",argv[0],(pointer (*)())ROSEUS_SUBSCRIBE,NULL);
+  defun(ctx,"UNSUBSCRIBE",argv[0],(pointer (*)())ROSEUS_UNSUBSCRIBE,NULL);
+  defun(ctx,"GET-NUM-PUBLISHERS",argv[0],(pointer (*)())ROSEUS_GETNUMPUBLISHERS,NULL);
+  defun(ctx,"GET-TOPIC-SUBSCRIBER",argv[0],(pointer (*)())ROSEUS_GETTOPICSUBSCRIBER,NULL);
 
-  defun(ctx,"ADVERTISE",argv[0],(pointer (*)())ROSEUS_ADVERTISE);
-  defun(ctx,"UNADVERTISE",argv[0],(pointer (*)())ROSEUS_UNADVERTISE);
-  defun(ctx,"PUBLISH",argv[0],(pointer (*)())ROSEUS_PUBLISH);
-  defun(ctx,"GET-NUM-SUBSCRIBERS",argv[0],(pointer (*)())ROSEUS_GETNUMSUBSCRIBERS);
-  defun(ctx,"GET-TOPIC-PUBLISHER",argv[0],(pointer (*)())ROSEUS_GETTOPICPUBLISHER);
+  defun(ctx,"ADVERTISE",argv[0],(pointer (*)())ROSEUS_ADVERTISE,NULL);
+  defun(ctx,"UNADVERTISE",argv[0],(pointer (*)())ROSEUS_UNADVERTISE,NULL);
+  defun(ctx,"PUBLISH",argv[0],(pointer (*)())ROSEUS_PUBLISH,NULL);
+  defun(ctx,"GET-NUM-SUBSCRIBERS",argv[0],(pointer (*)())ROSEUS_GETNUMSUBSCRIBERS,NULL);
+  defun(ctx,"GET-TOPIC-PUBLISHER",argv[0],(pointer (*)())ROSEUS_GETTOPICPUBLISHER,NULL);
 
-  defun(ctx,"WAIT-FOR-SERVICE",argv[0],(pointer (*)())ROSEUS_WAIT_FOR_SERVICE);
-  defun(ctx,"SERVICE-EXISTS", argv[0], (pointer (*)())ROSEUS_SERVICE_EXISTS);
-  defun(ctx,"SERVICE-CALL",argv[0],(pointer (*)())ROSEUS_SERVICE_CALL);
-  defun(ctx,"ADVERTISE-SERVICE",argv[0],(pointer (*)())ROSEUS_ADVERTISE_SERVICE);
-  defun(ctx,"UNADVERTISE-SERVICE",argv[0],(pointer (*)())ROSEUS_UNADVERTISE_SERVICE);
+  defun(ctx,"WAIT-FOR-SERVICE",argv[0],(pointer (*)())ROSEUS_WAIT_FOR_SERVICE,NULL);
+  defun(ctx,"SERVICE-EXISTS", argv[0], (pointer (*)())ROSEUS_SERVICE_EXISTS,NULL);
+  defun(ctx,"SERVICE-CALL",argv[0],(pointer (*)())ROSEUS_SERVICE_CALL,NULL);
+  defun(ctx,"ADVERTISE-SERVICE",argv[0],(pointer (*)())ROSEUS_ADVERTISE_SERVICE,NULL);
+  defun(ctx,"UNADVERTISE-SERVICE",argv[0],(pointer (*)())ROSEUS_UNADVERTISE_SERVICE,NULL);
 
-  defun(ctx,"SET-PARAM",argv[0],(pointer (*)())ROSEUS_SET_PARAM);
-  defun(ctx,"GET-PARAM",argv[0],(pointer (*)())ROSEUS_GET_PARAM);
-  defun(ctx,"GET-PARAM-CASHED",argv[0],(pointer (*)())ROSEUS_GET_PARAM_CASHED);
-  defun(ctx,"HAS-PARAM",argv[0],(pointer (*)())ROSEUS_HAS_PARAM);
+  defun(ctx,"SET-PARAM",argv[0],(pointer (*)())ROSEUS_SET_PARAM,NULL);
+  defun(ctx,"GET-PARAM",argv[0],(pointer (*)())ROSEUS_GET_PARAM,NULL);
+  defun(ctx,"GET-PARAM-CASHED",argv[0],(pointer (*)())ROSEUS_GET_PARAM_CASHED,NULL);
+  defun(ctx,"HAS-PARAM",argv[0],(pointer (*)())ROSEUS_HAS_PARAM,NULL);
 
-  defun(ctx,"ROSPACK-FIND",argv[0],(pointer (*)())ROSEUS_ROSPACK_FIND);
-  defun(ctx,"RESOLVE-NAME",argv[0],(pointer (*)())ROSEUS_RESOLVE_NAME);
-  defun(ctx,"GET-NAME",argv[0],(pointer (*)())ROSEUS_GETNAME);
-  defun(ctx,"GET-NAMESPACE",argv[0],(pointer (*)())ROSEUS_GETNAMESPACE);
+  defun(ctx,"ROSPACK-FIND",argv[0],(pointer (*)())ROSEUS_ROSPACK_FIND,NULL);
+  defun(ctx,"RESOLVE-NAME",argv[0],(pointer (*)())ROSEUS_RESOLVE_NAME,NULL);
+  defun(ctx,"GET-NAME",argv[0],(pointer (*)())ROSEUS_GETNAME,NULL);
+  defun(ctx,"GET-NAMESPACE",argv[0],(pointer (*)())ROSEUS_GETNAMESPACE,NULL);
 
-  defun(ctx,"ROSEUS-RAW",argv[0],(pointer (*)())ROSEUS);
-  defun(ctx,"CREATE-NODEHANDLE", argv[0], (pointer (*)())ROSEUS_CREATE_NODEHANDLE);
-  defun(ctx,"SET-LOGGER-LEVEL",argv[0],(pointer (*)())ROSEUS_SET_LOGGER_LEVEL);
+  defun(ctx,"ROSEUS-RAW",argv[0],(pointer (*)())ROSEUS,NULL);
+  defun(ctx,"CREATE-NODEHANDLE", argv[0], (pointer (*)())ROSEUS_CREATE_NODEHANDLE,NULL);
+  defun(ctx,"SET-LOGGER-LEVEL",argv[0],(pointer (*)())ROSEUS_SET_LOGGER_LEVEL,NULL);
 
   pointer_update(Spevalof(PACKAGE),p);
 
